@@ -54,8 +54,8 @@ body {
   }
 
   .print-page {
-    width: 210mm !important;
-    height: 275mm !important; /* A4高297mm - 余白20mm = 277mm からさらに余裕を持たせた275mm */
+    width: 100% !important; /* 印刷余白（左右10mmずつ）の内側に自動フィットさせ、右切れを防ぐ */
+    height: 277mm !important; /* A4縦297mm - 印刷余白20mm = 277mm */
     padding: 0 !important;
     margin: 0 !important;
     box-shadow: none !important;

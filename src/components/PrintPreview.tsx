@@ -60,14 +60,14 @@ export const PrintPreview: React.FC<PrintPreviewProps> = ({
               <table className="w-full border-collapse border border-black text-xs text-black table-fixed">
                 <thead>
                   <tr className="bg-slate-50 border-b border-black">
-                    <th className="border-r border-black p-1 text-center font-bold w-[16%]">単語番号</th>
-                    <th className="border-r border-black p-1 text-left font-bold w-[42%]">英単語</th>
-                    <th className="p-1 text-left font-bold w-[42%]">日本語訳</th>
+                    <th className="border-r border-black p-1.5 text-center font-bold w-[16%]">単語番号</th>
+                    <th className="border-r border-black p-1.5 text-left font-bold w-[42%]">英単語</th>
+                    <th className="p-1.5 text-left font-bold w-[42%]">日本語訳</th>
                   </tr>
                 </thead>
                 <tbody>
                   {leftColumnWords.map((word) => (
-                    <tr key={word.number} className="border-b border-black h-[7.8mm]">
+                    <tr key={word.number} className="border-b border-black h-[9.5mm]">
                       <td className="border-r border-black p-1 text-center font-mono font-medium truncate">{word.number}</td>
                       <td className="border-r border-black p-1 font-medium font-sans break-words whitespace-normal leading-tight">{word.english}</td>
                       <td className="p-1"></td>
@@ -82,14 +82,14 @@ export const PrintPreview: React.FC<PrintPreviewProps> = ({
               <table className="w-full border-collapse border border-black text-xs text-black table-fixed">
                 <thead>
                   <tr className="bg-slate-50 border-b border-black">
-                    <th className="border-r border-black p-1 text-center font-bold w-[16%]">単語番号</th>
-                    <th className="border-r border-black p-1 text-left font-bold w-[42%]">英単語</th>
-                    <th className="p-1 text-left font-bold w-[42%]">日本語訳</th>
+                    <th className="border-r border-black p-1.5 text-center font-bold w-[16%]">単語番号</th>
+                    <th className="border-r border-black p-1.5 text-left font-bold w-[42%]">英単語</th>
+                    <th className="p-1.5 text-left font-bold w-[42%]">日本語訳</th>
                   </tr>
                 </thead>
                 <tbody>
                   {rightColumnWords.map((word) => (
-                    <tr key={word.number} className="border-b border-black h-[7.8mm]">
+                    <tr key={word.number} className="border-b border-black h-[9.5mm]">
                       <td className="border-r border-black p-1 text-center font-mono font-medium truncate">{word.number}</td>
                       <td className="border-r border-black p-1 font-medium font-sans break-words whitespace-normal leading-tight">{word.english}</td>
                       <td className="p-1"></td>
@@ -131,7 +131,7 @@ export const PrintPreview: React.FC<PrintPreviewProps> = ({
               </thead>
               <tbody>
                 {leftColumnWords.map((word) => (
-                  <tr key={word.number} className="border-b border-black h-[8.5mm]">
+                  <tr key={word.number} className="border-b border-black h-[9.5mm]">
                     <td className="border-r border-black p-1.5 text-center font-mono font-medium truncate">{word.number}</td>
                     <td className="border-r border-black p-1.5 font-medium font-sans break-words whitespace-normal leading-tight">{word.english}</td>
                     <td className="p-1.5 answer text-red-600 font-semibold break-words whitespace-normal leading-tight">{word.japanese}</td>
@@ -172,7 +172,7 @@ export const PrintPreview: React.FC<PrintPreviewProps> = ({
               </thead>
               <tbody>
                 {rightColumnWords.map((word) => (
-                  <tr key={word.number} className="border-b border-black h-[8.5mm]">
+                  <tr key={word.number} className="border-b border-black h-[9.5mm]">
                     <td className="border-r border-black p-1.5 text-center font-mono font-medium truncate">{word.number}</td>
                     <td className="border-r border-black p-1.5 font-medium font-sans break-words whitespace-normal leading-tight">{word.english}</td>
                     <td className="p-1.5 answer text-red-600 font-semibold break-words whitespace-normal leading-tight">{word.japanese}</td>
