@@ -67,9 +67,9 @@ export const PrintPreview: React.FC<PrintPreviewProps> = ({
                 </thead>
                 <tbody>
                   {leftColumnWords.map((word) => (
-                    <tr key={word.number} className="border-b border-black h-[8.5mm]">
+                    <tr key={word.number} className="border-b border-black h-[7.8mm]">
                       <td className="border-r border-black p-1 text-center font-mono font-medium truncate">{word.number}</td>
-                      <td className="border-r border-black p-1 font-medium font-sans truncate">{word.english}</td>
+                      <td className="border-r border-black p-1 font-medium font-sans break-words whitespace-normal leading-tight">{word.english}</td>
                       <td className="p-1"></td>
                     </tr>
                   ))}
@@ -89,9 +89,9 @@ export const PrintPreview: React.FC<PrintPreviewProps> = ({
                 </thead>
                 <tbody>
                   {rightColumnWords.map((word) => (
-                    <tr key={word.number} className="border-b border-black h-[8.5mm]">
+                    <tr key={word.number} className="border-b border-black h-[7.8mm]">
                       <td className="border-r border-black p-1 text-center font-mono font-medium truncate">{word.number}</td>
-                      <td className="border-r border-black p-1 font-medium font-sans truncate">{word.english}</td>
+                      <td className="border-r border-black p-1 font-medium font-sans break-words whitespace-normal leading-tight">{word.english}</td>
                       <td className="p-1"></td>
                     </tr>
                   ))}
@@ -102,68 +102,84 @@ export const PrintPreview: React.FC<PrintPreviewProps> = ({
         </div>
       </div>
 
-      {/* 2枚目: 解答プリント */}
+      {/* 2枚目: 解答プリント（前半） */}
       <div className="print-page bg-white w-[210mm] h-[297mm] p-[10mm] shadow-lg border border-slate-200 mx-auto box-sizing-border-box flex flex-col justify-between select-none">
         <div>
           {/* ヘッダー情報 */}
           <div className="mb-4">
             <h1 className="text-2xl font-bold text-center text-black tracking-wide mb-2">
-              【解答】{wordBook.title} 英単語テスト
+              【解答・前半】{wordBook.title} 英単語テスト
             </h1>
             <div className="flex justify-between items-center text-xs text-black border-b border-black pb-2">
               <div>
                 <span>範囲：{startNo}〜{endNo}</span>
                 <span className="mx-3">|</span>
-                <span>問題数：50問</span>
+                <span>問題数：50問 (1〜25問目)</span>
               </div>
             </div>
           </div>
 
-          {/* 解答レイアウト（2列） */}
-          <div className="grid grid-cols-2 gap-[6mm]">
-            {/* 左列 */}
-            <div>
-              <table className="w-full border-collapse border border-black text-xs text-black table-fixed">
-                <thead>
-                  <tr className="bg-slate-50 border-b border-black">
-                    <th className="border-r border-black p-1 text-center font-bold w-[16%]">単語番号</th>
-                    <th className="border-r border-black p-1 text-left font-bold w-[42%]">英単語</th>
-                    <th className="p-1 text-left font-bold w-[42%]">答え</th>
+          {/* 解答レイアウト（1列） */}
+          <div className="w-full">
+            <table className="w-full border-collapse border border-black text-xs text-black table-fixed">
+              <thead>
+                <tr className="bg-slate-50 border-b border-black">
+                  <th className="border-r border-black p-1.5 text-center font-bold w-[12%]">単語番号</th>
+                  <th className="border-r border-black p-1.5 text-left font-bold w-[38%]">英単語</th>
+                  <th className="p-1.5 text-left font-bold w-[50%]">答え</th>
+                </tr>
+              </thead>
+              <tbody>
+                {leftColumnWords.map((word) => (
+                  <tr key={word.number} className="border-b border-black h-[8.5mm]">
+                    <td className="border-r border-black p-1.5 text-center font-mono font-medium truncate">{word.number}</td>
+                    <td className="border-r border-black p-1.5 font-medium font-sans break-words whitespace-normal leading-tight">{word.english}</td>
+                    <td className="p-1.5 answer text-red-600 font-semibold break-words whitespace-normal leading-tight">{word.japanese}</td>
                   </tr>
-                </thead>
-                <tbody>
-                  {leftColumnWords.map((word) => (
-                    <tr key={word.number} className="border-b border-black h-[8.5mm]">
-                      <td className="border-r border-black p-1 text-center font-mono font-medium truncate">{word.number}</td>
-                      <td className="border-r border-black p-1 font-medium font-sans truncate">{word.english}</td>
-                      <td className="p-1 answer text-red-600 font-semibold truncate">{word.japanese}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
 
-            {/* 右列 */}
-            <div>
-              <table className="w-full border-collapse border border-black text-xs text-black table-fixed">
-                <thead>
-                  <tr className="bg-slate-50 border-b border-black">
-                    <th className="border-r border-black p-1 text-center font-bold w-[16%]">単語番号</th>
-                    <th className="border-r border-black p-1 text-left font-bold w-[42%]">英単語</th>
-                    <th className="p-1 text-left font-bold w-[42%]">答え</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {rightColumnWords.map((word) => (
-                    <tr key={word.number} className="border-b border-black h-[8.5mm]">
-                      <td className="border-r border-black p-1 text-center font-mono font-medium truncate">{word.number}</td>
-                      <td className="border-r border-black p-1 font-medium font-sans truncate">{word.english}</td>
-                      <td className="p-1 answer text-red-600 font-semibold truncate">{word.japanese}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+      {/* 3枚目: 解答プリント（後半） */}
+      <div className="print-page bg-white w-[210mm] h-[297mm] p-[10mm] shadow-lg border border-slate-200 mx-auto box-sizing-border-box flex flex-col justify-between select-none">
+        <div>
+          {/* ヘッダー情報 */}
+          <div className="mb-4">
+            <h1 className="text-2xl font-bold text-center text-black tracking-wide mb-2">
+              【解答・後半】{wordBook.title} 英単語テスト
+            </h1>
+            <div className="flex justify-between items-center text-xs text-black border-b border-black pb-2">
+              <div>
+                <span>範囲：{startNo}〜{endNo}</span>
+                <span className="mx-3">|</span>
+                <span>問題数：50問 (26〜50問目)</span>
+              </div>
             </div>
+          </div>
+
+          {/* 解答レイアウト（1列） */}
+          <div className="w-full">
+            <table className="w-full border-collapse border border-black text-xs text-black table-fixed">
+              <thead>
+                <tr className="bg-slate-50 border-b border-black">
+                  <th className="border-r border-black p-1.5 text-center font-bold w-[12%]">単語番号</th>
+                  <th className="border-r border-black p-1.5 text-left font-bold w-[38%]">英単語</th>
+                  <th className="p-1.5 text-left font-bold w-[50%]">答え</th>
+                </tr>
+              </thead>
+              <tbody>
+                {rightColumnWords.map((word) => (
+                  <tr key={word.number} className="border-b border-black h-[8.5mm]">
+                    <td className="border-r border-black p-1.5 text-center font-mono font-medium truncate">{word.number}</td>
+                    <td className="border-r border-black p-1.5 font-medium font-sans break-words whitespace-normal leading-tight">{word.english}</td>
+                    <td className="p-1.5 answer text-red-600 font-semibold break-words whitespace-normal leading-tight">{word.japanese}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

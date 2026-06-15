@@ -55,8 +55,8 @@ body {
 
   .print-page {
     width: 210mm !important;
-    height: 277mm !important; /* 余白10mm x 2 を引いた実質高さ */
-    padding: 0 !important; /* marginが10mmあるため、中のpaddingは不要または小さく調整 */
+    height: 275mm !important; /* A4高297mm - 余白20mm = 277mm からさらに余裕を持たせた275mm */
+    padding: 0 !important;
     margin: 0 !important;
     box-shadow: none !important;
     border: none !important;
