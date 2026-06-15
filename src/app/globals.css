@@ -33,7 +33,7 @@ body {
     margin: 0 !important;
     padding: 0 !important;
     width: 210mm !important;
-    height: 297mm !important;
+    height: auto !important;
   }
 
   /* 2. 印刷不要な要素を完全に非表示 */
@@ -81,9 +81,9 @@ body {
   /* 6. 各印刷ページの定義 */
   .print-page {
     width: 210mm !important;
-    height: 297mm !important; /* A4の縦サイズにぴったり合わせる */
-    max-height: 297mm !important;
-    min-height: 297mm !important;
+    height: 276mm !important; /* SafariやChromeの強制プリンタ余白（約20mm）を考慮し、297mmから276mmに縮小して改ページ崩れを防ぐ */
+    max-height: 276mm !important;
+    min-height: 276mm !important;
     padding: 10mm !important; /* 内側の余白を10mmにする */
     margin: 0 !important;
     box-shadow: none !important;
@@ -99,7 +99,13 @@ body {
     flex-direction: column !important;
     justify-content: space-between !important;
     position: relative !important;
-    overflow: hidden !important;
+    overflow: hidden;
+  }
+
+  /* 最終ページの後は強制改ページを行わない */
+  .print-page:last-child {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
   }
 
   .answer {
