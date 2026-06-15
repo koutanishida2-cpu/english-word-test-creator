@@ -55,7 +55,8 @@ body {
 
   .print-page {
     width: 100% !important; /* 印刷余白（左右10mmずつ）の内側に自動フィットさせ、右切れを防ぐ */
-    height: 276mm !important; /* A4縦297mm - 印刷余白20mm = 277mm から微調整で276mm */
+    height: auto !important; /* 固定高さを解除し、ブラウザのマージンコンフリクトによる自動改ページを防ぐ */
+    min-height: 276mm !important; /* プレビューとして綺麗な高さを維持 */
     padding: 0 !important;
     margin: 0 !important;
     box-shadow: none !important;

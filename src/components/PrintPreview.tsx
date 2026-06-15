@@ -35,12 +35,12 @@ export const PrintPreview: React.FC<PrintPreviewProps> = ({
       {/* 1枚目: 問題プリント */}
       <div className="print-page bg-white w-[210mm] h-[297mm] p-[10mm] shadow-lg border border-slate-200 mx-auto box-sizing-border-box flex flex-col justify-between select-none">
         <div>
-          {/* ヘッダー情報 */}
-          <div className="mb-4">
-            <h1 className="text-2xl font-bold text-center text-black tracking-wide mb-2">
+          {/* ヘッダー情報 - 高さを節約するためにコンパクトに調整 */}
+          <div className="mb-2">
+            <h1 className="text-xl font-bold text-center text-black tracking-wide mb-1">
               {wordBook.title} 英単語テスト
             </h1>
-            <div className="flex justify-between items-center text-xs text-black border-b border-black pb-2">
+            <div className="flex justify-between items-center text-xs text-black border-b border-black pb-1">
               <div>
                 <span>範囲：{startNo}〜{endNo}</span>
                 <span className="mx-3">|</span>
@@ -105,12 +105,12 @@ export const PrintPreview: React.FC<PrintPreviewProps> = ({
       {/* 2枚目: 解答プリント（前半） */}
       <div className="print-page bg-white w-[210mm] h-[297mm] p-[10mm] shadow-lg border border-slate-200 mx-auto box-sizing-border-box flex flex-col justify-between select-none">
         <div>
-          {/* ヘッダー情報 */}
-          <div className="mb-4">
-            <h1 className="text-2xl font-bold text-center text-black tracking-wide mb-2">
+          {/* ヘッダー情報 - 高さを節約するためにコンパクトに調整 */}
+          <div className="mb-2">
+            <h1 className="text-xl font-bold text-center text-black tracking-wide mb-1">
               【解答・前半】{wordBook.title} 英単語テスト
             </h1>
-            <div className="flex justify-between items-center text-xs text-black border-b border-black pb-2">
+            <div className="flex justify-between items-center text-xs text-black border-b border-black pb-1">
               <div>
                 <span>範囲：{startNo}〜{endNo}</span>
                 <span className="mx-3">|</span>
@@ -146,12 +146,12 @@ export const PrintPreview: React.FC<PrintPreviewProps> = ({
       {/* 3枚目: 解答プリント（後半） */}
       <div className="print-page bg-white w-[210mm] h-[297mm] p-[10mm] shadow-lg border border-slate-200 mx-auto box-sizing-border-box flex flex-col justify-between select-none">
         <div>
-          {/* ヘッダー情報 */}
-          <div className="mb-4">
-            <h1 className="text-2xl font-bold text-center text-black tracking-wide mb-2">
+          {/* ヘッダー情報 - 高さを節約するためにコンパクトに調整 */}
+          <div className="mb-2">
+            <h1 className="text-xl font-bold text-center text-black tracking-wide mb-1">
               【解答・後半】{wordBook.title} 英単語テスト
             </h1>
-            <div className="flex justify-between items-center text-xs text-black border-b border-black pb-2">
+            <div className="flex justify-between items-center text-xs text-black border-b border-black pb-1">
               <div>
                 <span>範囲：{startNo}〜{endNo}</span>
                 <span className="mx-3">|</span>
