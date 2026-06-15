@@ -26,19 +26,42 @@ body {
 }
 
 @media print {
+  /* 1. ページ全体のリセット */
   html, body {
     background: #ffffff !important;
     color: #000000 !important;
     margin: 0 !important;
     padding: 0 !important;
     width: 210mm !important;
-    height: auto !important;
+    height: 297mm !important;
   }
 
+  /* 2. 印刷不要な要素を完全に非表示 */
   .no-print {
     display: none !important;
   }
 
+  /* 3. 印刷用の親ラッパーの完全リセット */
+  /* body直下のdiv, main, grid, カラムラッパー, スクロールラッパー */
+  body, 
+  body > div, 
+  main, 
+  main > div,
+  .print\:col-span-12,
+  .print\:p-0 {
+    display: block !important;
+    width: 210mm !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    position: static !important;
+    height: auto !important;
+  }
+
+  /* 4. コンテナのリセット */
   .print-container {
     display: block !important;
     width: 210mm !important;
@@ -46,28 +69,37 @@ body {
     padding: 0 !important;
     box-shadow: none !important;
     border: none !important;
+    background: transparent !important;
   }
 
+  /* 5. A4サイズ用の余白設定 */
   @page {
     size: A4 portrait;
-    margin: 10mm;
+    margin: 0; /* ブラウザ側の余白を0にして、CSSで完璧に余白を管理する */
   }
 
+  /* 6. 各印刷ページの定義 */
   .print-page {
-    width: 100% !important; /* 印刷余白（左右10mmずつ）の内側に自動フィットさせ、右切れを防ぐ */
-    height: auto !important; /* 固定高さを解除し、ブラウザのマージンコンフリクトによる自動改ページを防ぐ */
-    min-height: 276mm !important; /* プレビューとして綺麗な高さを維持 */
-    padding: 0 !important;
+    width: 210mm !important;
+    height: 297mm !important; /* A4の縦サイズにぴったり合わせる */
+    max-height: 297mm !important;
+    min-height: 297mm !important;
+    padding: 10mm !important; /* 内側の余白を10mmにする */
     margin: 0 !important;
     box-shadow: none !important;
     border: none !important;
     page-break-after: always !important;
     break-after: page !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
     box-sizing: border-box !important;
     background: #ffffff !important;
     color: #000000 !important;
     display: flex !important;
     flex-direction: column !important;
+    justify-content: space-between !important;
+    position: relative !important;
+    overflow: hidden !important;
   }
 
   .answer {
